@@ -4,7 +4,7 @@ const pathQ = window.location.href.split("=");
 const bookId = pathQ[pathQ.length - 1];
 function getBookById(event) {
 
-    fetch(`http://127.0.0.1:8000/books/${bookId}"`, {
+    fetch(`https://library-management-system-4hmcxkvn4-adarsh-ks-projects-44e5e3c6.vercel.app/books/${bookId}"`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
