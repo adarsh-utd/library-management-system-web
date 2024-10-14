@@ -75,7 +75,7 @@ function getAllMembers(e) {
                             
                             <td class="${isDeleted(member.status) ? 'visually-hidden' : ''}"><button class="btn btn-info  text-white  "  onClick=updateMember(event,'${member.id}')>Update</button> 
                                 <button class="btn btn-danger  text-white"  onClick=deleteMember(event,'${member.id}')>Delete</button>
-                                <button class="btn btn-secondary  text-white"  onClick=history(event)>History</button>
+                                <button class="btn btn-secondary  text-white"  onClick=history(event,'${member.id}')>History</button>
                                
                            </td>
                            
@@ -107,9 +107,9 @@ function addMember(e) {
     e.preventDefault();
     window.location.href = 'add-member.html';
 }
-function history(e) {
+function history(e, memberId) {
     e.preventDefault();
-    window.location.href = 'book-history.html';
+    window.location.href = 'book-history.html?member_id=' + memberId;
 }
 
 const headers = `

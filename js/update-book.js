@@ -2,9 +2,10 @@ const userStorageData = localStorage.getItem("userData");
 var userData = JSON.parse(userStorageData);
 const pathQ = window.location.href.split("=");
 const bookId = pathQ[pathQ.length - 1];
+console.log(bookId)
 function getBookById(event) {
 
-    fetch(`https://library-management-system-api-35083192508e.herokuapp.com/books/${bookId}"`, {
+    fetch(`https://library-management-system-api-35083192508e.herokuapp.com/books/${bookId}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -41,7 +42,7 @@ function clickUpdate(e) {
     var userData = localStorage.getItem("userData");
     var userData = JSON.parse(userData);
 
-    fetch(`https://library-management-system-api-35083192508e.herokuapp.com/members/${memberId}`, {
+    fetch(`https://library-management-system-api-35083192508e.herokuapp.com/books/${bookId}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",

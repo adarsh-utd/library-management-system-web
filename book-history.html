@@ -46,8 +46,8 @@
 
                     const historyId = document.getElementById("history");
                     historyId.innerHTML = ""
-                    if (result.borrow_history.length != 0) {
-                        result.borrow_history.forEach(history => {
+                    if (result.books.length != 0) {
+                        result.books.forEach(history => {
                             const row = document.createElement("tr");
                             row.innerHTML = `
                             

@@ -39,7 +39,7 @@ function deleteBook(e, book_id) {
 function getAllBooks(e) {
     e.preventDefault();
 
-    console.log(userData);
+
 
     fetch("https://library-management-system-api-35083192508e.herokuapp.com/books", {
         method: "GET",
@@ -68,6 +68,7 @@ function getAllBooks(e) {
             if (result.books.length != 0) {
                 result.books.forEach(book => {
                     const row = document.createElement("tr");
+                    console.log(isBorrwedUserCurrentUserSame(userData.id, book.borrow_by_id, userType));
                     row.innerHTML = `
                     
                     <td>${book.name}</td>
@@ -79,8 +80,8 @@ function getAllBooks(e) {
                         <button class="btn btn-danger  text-white"  onClick=deleteBook(event,'${book.id}')>Delete</button>
                        
                    </td>
-                    <td class="${isBorrwedUserCurrentUserSame(userData.id, book.borrow_by_id, userType) ? 'visually-hidden' : ''} ">
-                        <button class="btn btn-success  text-white"  onClick=deleteBook(event,'${book.id}')>${book.status == "BORROWED" ? "Return" : "Borrow"}</button>
+                    <td class="${isBorrwedUserCurrentUserSame(userData.id, book.borrow_by_id, userType, book.status) ? '' : 'visually-hidden'} ">
+                        <button class="btn btn-success  text-white"  onClick=borrowReturnBook(event,'${book.id}','${book.status == "BORROWED" ? false : true}')>${book.status == "BORROWED" ? "Return" : "Borrow"}</button>
                        
                    </td>
                    
@@ -107,11 +108,37 @@ function getAllBooks(e) {
 }
 document.addEventListener("DOMContentLoaded", getAllBooks);
 
+
 function addBook(e) {
     e.preventDefault();
     window.location.href = 'add-book.html';
 }
 
+function borrowReturnBook(e, bookId, bookStatus) {
+    fetch(`https://library-management-system-api-35083192508e.herokuapp.com/books/${bookId}/borrow-return/${bookStatus}`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${userData.access_token}`
+        },
+    })
+        .then((response) => {
+            if (response.status == 401) {
+                localStorage.removeItem("userData");
+                window.location.href = 'index.html';
+                return;
+            }
+
+            if (!response.ok) {
+                console.log(response);
+                alert("Something went wrong");
+            }
+            else {
+                window.location.href = 'book.html';
+            }
+            return response.json();
+        })
+}
 
 
 function deleteMyAccount() {

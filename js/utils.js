@@ -14,14 +14,26 @@ function isDeleted(deleteStatus) {
     return deleteStatus == 'Deleted';
 }
 
-function isBorrwedUserCurrentUserSame(userId, BorrowerId, userType) {
+function isBorrwedUserCurrentUserSame(userId, BorrowerId, userType, borrowStatus) {
     if (userType == 'member') {
-        return true
+        if (borrowStatus == "BORROWED") {
+            console.log(userId, BorrowerId);
+
+            if (userId != BorrowerId) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        else {
+            return true;
+        }
+
     }
-    console.log(userId, BorrowerId, userType);
+    else {
+        return false;
+    }
 
-
-    return userId != BorrowerId;
 }
 
 function logout(userData) {
