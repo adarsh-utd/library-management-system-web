@@ -10,7 +10,7 @@ function deleteMember(e, memberId) {
     console.log(memberId);
 
 
-    fetch("https://library-management-system-4hmcxkvn4-adarsh-ks-projects-44e5e3c6.vercel.app/members/" + memberId, {
+    fetch("https://library-management-system-api-35083192508e.herokuapp.com/members/" + memberId, {
         method: "delete",
         headers: {
             "Content-Type": "application/json",
@@ -41,7 +41,7 @@ function getAllMembers(e) {
 
     console.log(userData);
 
-    fetch("https://library-management-system-4hmcxkvn4-adarsh-ks-projects-44e5e3c6.vercel.app/members", {
+    fetch("https://library-management-system-api-35083192508e.herokuapp.com/members", {
         method: "GET",
         headers: {
             "Content-Type": "application/json",

@@ -4,7 +4,7 @@ const pathQ = window.location.href.split("=");
 const bookId = pathQ[pathQ.length - 1];
 function getBookById(event) {
 
-    fetch(`https://library-management-system-4hmcxkvn4-adarsh-ks-projects-44e5e3c6.vercel.app/books/${bookId}"`, {
+    fetch(`https://library-management-system-api-35083192508e.herokuapp.com/books/${bookId}"`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -41,7 +41,7 @@ function clickUpdate(e) {
     var userData = localStorage.getItem("userData");
     var userData = JSON.parse(userData);
 
-    fetch(`http://127.0.0.1:8000/members/${memberId}`, {
+    fetch(`https://library-management-system-api-35083192508e.herokuapp.com/members/${memberId}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",

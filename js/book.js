@@ -10,7 +10,7 @@ function deleteBook(e, book_id) {
     console.log(book_id);
 
 
-    fetch("https://library-management-system-4hmcxkvn4-adarsh-ks-projects-44e5e3c6.vercel.app/books/" + book_id, {
+    fetch("https://library-management-system-api-35083192508e.herokuapp.com/books/" + book_id, {
         method: "delete",
         headers: {
             "Content-Type": "application/json",
@@ -41,7 +41,7 @@ function getAllBooks(e) {
 
     console.log(userData);
 
-    fetch("https://library-management-system-4hmcxkvn4-adarsh-ks-projects-44e5e3c6.vercel.app/books", {
+    fetch("https://library-management-system-api-35083192508e.herokuapp.com/books", {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -116,7 +116,7 @@ function addBook(e) {
 
 function deleteMyAccount() {
 
-    fetch("https://library-management-system-4hmcxkvn4-adarsh-ks-projects-44e5e3c6.vercel.app/members/delete-my-account", {
+    fetch("https://library-management-system-api-35083192508e.herokuapp.com/members/delete-my-account", {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",

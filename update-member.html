@@ -17,7 +17,7 @@
         var userData = JSON.parse(userStorageData);
         function getBookById(event) {
 
-            fetch(`https://library-management-system-4hmcxkvn4-adarsh-ks-projects-44e5e3c6.vercel.app/members/${memberId}`, {
+            fetch(`https://library-management-system-api-35083192508e.herokuapp.com/members/${memberId}`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
@@ -54,7 +54,7 @@
             var userData = localStorage.getItem("userData");
             var userData = JSON.parse(userData);
 
-            fetch(`http://127.0.0.1:8000/members/${memberId}`, {
+            fetch(`https://library-management-system-api-35083192508e.herokuapp.com/members/${memberId}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

@@ -5,7 +5,7 @@ function clickSignup(e) {
     const userType = document.getElementById('usertype').value;
     const email = document.getElementById('email').value;
     const address = document.getElementById('address').value;
-    fetch("https://library-management-system-4hmcxkvn4-adarsh-ks-projects-44e5e3c6.vercel.app/signup", {
+    fetch("https://library-management-system-api-35083192508e.herokuapp.com/signup", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
